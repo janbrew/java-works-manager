@@ -1,0 +1,9 @@
+{
+    "java.debug.settings.exceptionBreakpoint.skipClasses": [
+
+    ],
+    "java.jdt.ls.java.home": "",
+    "java.configuration.runtimes": [
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
