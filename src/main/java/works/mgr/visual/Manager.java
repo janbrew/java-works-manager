@@ -2,8 +2,9 @@ package works.mgr.visual;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Dialog.ModalityType;
 import java.awt.event.*;
-
+import net.miginfocom.swing.MigLayout;
 import works.mgr.activities.*;
 
 class Logger {
@@ -205,10 +206,10 @@ public class Manager extends JFrame {
                 actButton1MouseClicked(evt);
             }
             public void mouseEntered(MouseEvent evt) {
-                actButtonMouseEntered(evt, actButton1);
+                buttonMouseEntered(evt, actButton1);
             }
             public void mouseExited(MouseEvent evt) {
-                actButtonMouseExited(evt, actButton1);
+                buttonMouseExited(evt, actButton1, buttonBackground);
             }
         });
 
@@ -228,10 +229,10 @@ public class Manager extends JFrame {
                 actButton2MouseClicked(evt);
             }
             public void mouseEntered(MouseEvent evt) {
-                actButtonMouseEntered(evt, actButton2);
+                buttonMouseEntered(evt, actButton2);
             }
             public void mouseExited(MouseEvent evt) {
-                actButtonMouseExited(evt, actButton2);
+                buttonMouseExited(evt, actButton2, buttonBackground);
             }
         });
 
@@ -251,10 +252,10 @@ public class Manager extends JFrame {
                 actButton3MouseClicked(evt);
             }
             public void mouseEntered(MouseEvent evt) {
-                actButtonMouseEntered(evt, actButton3);
+                buttonMouseEntered(evt, actButton3);
             }
             public void mouseExited(MouseEvent evt) {
-                actButtonMouseExited(evt, actButton3);
+                buttonMouseExited(evt, actButton3, buttonBackground);
             }
         });
 
@@ -274,10 +275,10 @@ public class Manager extends JFrame {
                 actButton4MouseClicked(evt);
             }
             public void mouseEntered(MouseEvent evt) {
-                actButtonMouseEntered(evt, actButton4);
+                buttonMouseEntered(evt, actButton4);
             }
             public void mouseExited(MouseEvent evt) {
-                actButtonMouseExited(evt, actButton4);
+                buttonMouseExited(evt, actButton4, buttonBackground);
             }
         });
 
@@ -297,10 +298,10 @@ public class Manager extends JFrame {
                 actButton5MouseClicked(evt);
             }
             public void mouseEntered(MouseEvent evt) {
-                actButtonMouseEntered(evt, actButton5);
+                buttonMouseEntered(evt, actButton5);
             }
             public void mouseExited(MouseEvent evt) {
-                actButtonMouseExited(evt, actButton5);
+                buttonMouseExited(evt, actButton5, buttonBackground);
             }
         });
 
@@ -320,10 +321,10 @@ public class Manager extends JFrame {
                 actButton6MouseClicked(evt);
             }
             public void mouseEntered(MouseEvent evt) {
-                actButtonMouseEntered(evt, actButton6);
+                buttonMouseEntered(evt, actButton6);
             }
             public void mouseExited(MouseEvent evt) {
-                actButtonMouseExited(evt, actButton6);
+                buttonMouseExited(evt, actButton6, buttonBackground);
             }
         });
 
@@ -343,10 +344,10 @@ public class Manager extends JFrame {
                 actButton7MouseClicked(evt);
             }
             public void mouseEntered(MouseEvent evt) {
-                actButtonMouseEntered(evt, actButton7);
+                buttonMouseEntered(evt, actButton7);
             }
             public void mouseExited(MouseEvent evt) {
-                actButtonMouseExited(evt, actButton7);
+                buttonMouseExited(evt, actButton7, buttonBackground);
             }
         });
 
@@ -381,13 +382,13 @@ public class Manager extends JFrame {
             Integer.parseInt(input);
         }
         catch (NumberFormatException e) {
-            Logger.log(3, "Input is invalid. It may be caused by invalid variable type of (String, long, or double)", logField);
+            Logger.log(3, "Invalid input. Invalid variable type of (String, long, or double)", logField);
 
             JOptionPane.showMessageDialog(getContentPane(), "Input is not a valid integer", "Invalid Integer Value", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if (Integer.parseInt(input) < 1 || Integer.parseInt(input) > 250) {
-            Logger.log(3, "Input is invalid. It is outside the range of 1 to 250", logField);
+            Logger.log(3, "Invalid input. It is outside the range of 1 to 250", logField);
 
             JOptionPane.showMessageDialog(getContentPane(), 
                                           "Enter a number between 1 and 250", 
@@ -400,7 +401,7 @@ public class Manager extends JFrame {
                                           Fibonacci.fibonacci(input), 
                                           "Fibonacci Sequence", 
                                           JOptionPane.PLAIN_MESSAGE);
-            Logger.log(1, "Successful!", logField);
+            Logger.log(1, "Button action successful", logField);
             return;
         }
     }
@@ -427,7 +428,7 @@ public class Manager extends JFrame {
             Integer.parseInt(input);
         }
         catch (NumberFormatException e) {
-            Logger.log(3, "Input is invalid. It may be caused by invalid variable type of (String, long, or double)", logField);
+            Logger.log(3, "Invalid input. Invalid variable type of (String, long, or double)", logField);
             
             JOptionPane.showMessageDialog(getContentPane(), 
                                             "Enter a valid integer type value", 
@@ -451,7 +452,7 @@ public class Manager extends JFrame {
                                             AltAdd.altAdd(input), 
                                             "Altenating Addition System", 
                                             JOptionPane.PLAIN_MESSAGE);
-            Logger.log(1, "Successful!", logField);
+            Logger.log(1, "Button action successful", logField);
             return;
         }    
     }
@@ -513,7 +514,7 @@ public class Manager extends JFrame {
                 p2 = p2.strip().toUpperCase();
 
                 JOptionPane.showMessageDialog(getContentPane(), RPS.rps(p1, p2), "Game Result", JOptionPane.PLAIN_MESSAGE);
-                Logger.log(1, "Successful!", logField);
+                Logger.log(1, "Button action successful", logField);
                 return;
             }
         }
@@ -541,7 +542,7 @@ public class Manager extends JFrame {
             Integer.parseInt(var1);
         }
         catch (NumberFormatException e) {
-            Logger.log(3, "Input is invalid. It may be caused by invalid variable type of (String, long, or double)", logField);
+            Logger.log(3, "Invalid input. Invalid variable type of (String, long, or double)", logField);
             JOptionPane.showMessageDialog(getContentPane(), 
                                             "Enter a valid integer type value", 
                                             "Invalid Input", 
@@ -567,7 +568,7 @@ public class Manager extends JFrame {
             Integer.parseInt(var2);
         }
         catch (NumberFormatException e) {
-            Logger.log(3, "Input is invalid. It may be caused by invalid variable type of (String, long, or double)", logField);
+            Logger.log(3, "Invalid input. Invalid variable type of (String, long, or double)", logField);
             JOptionPane.showMessageDialog(getContentPane(), 
                                             "Enter a valid integer type value", 
                                             "Invalid Input", 
@@ -593,7 +594,7 @@ public class Manager extends JFrame {
             Integer.parseInt(var3);
         }
         catch (NumberFormatException e) {
-            Logger.log(3, "Input is invalid. It may be caused by invalid variable type of (String, long, or double)", logField);
+            Logger.log(3, "Invalid input. Invalid variable type of (String, long, or double)", logField);
             JOptionPane.showMessageDialog(getContentPane(), 
                                             "Enter a valid integer type value", 
                                             "Invalid Input", 
@@ -602,109 +603,16 @@ public class Manager extends JFrame {
         }
 
         JOptionPane.showMessageDialog(getContentPane(), Comparison.compare(var1, var2, var3), "Comparison Result", JOptionPane.PLAIN_MESSAGE);
-        Logger.log(1, "Successful!", logField);
+        Logger.log(1, "Button action successful", logField);
         return;
     }
 
     private void actButton5MouseClicked(MouseEvent evt) {
-        Logger.log(1, "\"Highest-Lowest\" Button has been performed", logField);
-
-        String input = JOptionPane.showInputDialog(getContentPane(), 
-                                            "Enter a matrix (Rows separated by ';' and cells separated by ',')\nE.g 1,2,3;4,5,6;7,8,9", 
-                                            "Highest-Lowest", 
-                                            JOptionPane.DEFAULT_OPTION);
-                                        
-        if (input == null) {
-            Logger.log(2, "Action halted", logField);
-            return;
-        }
-
-        else if (input.trim().isEmpty()) {
-            Logger.log(3, "Expected input but none was provided", logField);
-            return;
-        }
-
-        String[] lines = input.split(";");
-        int[][] matrix = new int[lines.length][];
-
-        for (int row = 0; row < lines.length; row++) {
-            String[] cells = lines[row].split(",");
-            matrix[row] = new int[cells.length];
-
-            for (int column = 0; column < cells.length; column++) {
-                try {
-                    matrix[row][column] = Integer.parseInt(cells[column].strip());
-                }
-                catch (NumberFormatException e) {
-                    Logger.log(3, "Invalid cell value. It may be caused by invalid variable type of (String, long, or double)", logField);
-                    JOptionPane.showMessageDialog(getContentPane(), cells[column] + " is not a valid integer value", "Invalid Cell Value", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-            }
-        }
-
-        JOptionPane.showMessageDialog(getContentPane(), HighestLowest.highestLowest(matrix), "Highest-Lowest", JOptionPane.PLAIN_MESSAGE);
-        Logger.log(1, "Successful!", logField);
-        return;  
+        matrixActionInputGetter("HighLow");
     }
 
     private void actButton6MouseClicked(MouseEvent evt) {
-        Logger.log(1, "\"Matrix Computation\" Button has been performed", logField);                                              
-        String input = JOptionPane.showInputDialog(getContentPane(), 
-                                            "Enter a matrix (Rows separated by ';' and cells separated by ',')\nE.g 1,2,3;4,5,6;7,8,9", 
-                                            "Matrix Operation", 
-                                            JOptionPane.DEFAULT_OPTION);
-                                        
-        if (input == null) {
-            Logger.log(2, "Action halted", logField);
-            return;
-        }
-
-        else if (input.trim().isEmpty()) {
-            Logger.log(3, "Expected input but none was provided", logField);
-            return;
-        }
-
-        String[] lines = input.split(";");
-
-        int rowLen = 0;
-        for (String line: lines) {
-            if (rowLen == 0) {
-                if (line.contains(",")) {
-                    rowLen = line.split(",").length;
-                }
-                else {
-                    rowLen = 1;
-                }
-            }
-            else if (rowLen < line.split(",").length || rowLen > line.split(",").length) {
-                Logger.log(3, "Length of rows do not match each other", logField);
-                JOptionPane.showMessageDialog(getContentPane(), "Row(s) cell amount do not match the previous one(s)", "Cell Count Mismatch", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-        }
-        int[][] matrix = new int[lines.length][];
-
-        for (int row = 0; row < lines.length; row++) {
-            String[] cells = lines[row].split(",");
-            matrix[row] = new int[cells.length];
-
-            for (int column = 0; column < cells.length; column++) {
-                try {
-                    matrix[row][column] = Integer.parseInt(cells[column].strip());
-                }
-                catch (NumberFormatException e) {
-                    Logger.log(3, "Invalid cell value. It may be caused by invalid variable type of (String, long, or double)", logField);
-
-                    JOptionPane.showMessageDialog(getContentPane(), cells[column] + " is not a valid integer value", "Invalid Cell Value", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-            }
-        }
-
-        JOptionPane.showMessageDialog(getContentPane(), MatrixComp.matrixComputation(matrix), "Matrix Operation", JOptionPane.PLAIN_MESSAGE);
-        Logger.log(1, "Successful!", logField);
-        return;    
+        matrixActionInputGetter("MatrixComp");
     }
 
     private void actButton7MouseClicked(MouseEvent evt) {
@@ -729,7 +637,7 @@ public class Manager extends JFrame {
             Integer.parseInt(input);
         }
         catch (NumberFormatException e) {
-            Logger.log(3, "Input is invalid. It may be caused by invalid variable type of (String, long, or double)", logField);
+            Logger.log(3, "Invalid input. Invalid variable type of (String, long, or double)", logField);
 
             JOptionPane.showMessageDialog(getContentPane(), 
                                             "Enter a valid integer type value", 
@@ -749,7 +657,7 @@ public class Manager extends JFrame {
         }
 
         JOptionPane.showMessageDialog(getContentPane(), Grading.gradingSystem(Integer.parseInt(input)), "Raw Grade to Pointed Grade Converter", JOptionPane.PLAIN_MESSAGE);
-        Logger.log(1, "Successful!", logField);
+        Logger.log(1, "Button action successful", logField);
         return;     
     }
 
@@ -778,15 +686,13 @@ public class Manager extends JFrame {
             logField.repaint();
             logField.revalidate();
         }).start();
-
-        
     }
 
     private void logLabelEntered(MouseEvent evt) {
         logLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
     
-    private void actButtonMouseEntered(MouseEvent evt, JPanel button) {
+    private void buttonMouseEntered(MouseEvent evt, JPanel button) {
         Color color = buttonBackground.brighter();
         
         button.setBackground(color);
@@ -795,10 +701,128 @@ public class Manager extends JFrame {
         
     }
 
-    private void actButtonMouseExited(MouseEvent evt, JPanel button) {
-        Color color = buttonBackground;
-        
+    private void buttonMouseExited(MouseEvent evt, JPanel button, Color color) {
         button.setBackground(color);
+    }
+
+    private void matrixActionInputGetter(String func) {
+        JDialog inputGetter = new JDialog(getOwner(), "Matrix Interactive Input", ModalityType.MODELESS);
+        inputGetter.setIconImage(windowIcon);
+        inputGetter.setLayout(new BorderLayout());
+        inputGetter.setBackground(homeColor);
+        inputGetter.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent evt) {
+                Logger.log(2, "Action halted", logField);
+            }
+        }); 
+
+        JPanel matrixBuildPanel = new JPanel(new BorderLayout());
+        JPanel fieldPanel = new JPanel(new MigLayout("align 50% 50%, wrap", "[][][]", "[][][]"));
+        fieldPanel.setBackground(buttonPanelColor);
+
+        JTextField row1col1 = initMatrixField();
+        JTextField row1col2 = initMatrixField();
+        JTextField row1col3 = initMatrixField();
+        JTextField row2col1 = initMatrixField();
+        JTextField row2col2 = initMatrixField();
+        JTextField row2col3 = initMatrixField();
+        JTextField row3col1 = initMatrixField();
+        JTextField row3col2 = initMatrixField();
+        JTextField row3col3 = initMatrixField();
+        JPanel confirmButton = initMatrixBuild(new JTextField[][]{{row1col1, row1col2, row1col3}, {row2col1, row2col2, row2col3}, {row3col1, row3col2, row3col3}}, func, inputGetter);
+
+        fieldPanel.add(row1col1);
+        fieldPanel.add(row1col2);
+        fieldPanel.add(row1col3);
+        fieldPanel.add(row2col1);
+        fieldPanel.add(row2col2);
+        fieldPanel.add(row2col3);
+        fieldPanel.add(row3col1);
+        fieldPanel.add(row3col2);
+        fieldPanel.add(row3col3);
+
+        matrixBuildPanel.add(fieldPanel, BorderLayout.CENTER);
+        matrixBuildPanel.add(confirmButton, BorderLayout.SOUTH);
+        inputGetter.add(matrixBuildPanel, BorderLayout.CENTER);
+        inputGetter.pack();
+        inputGetter.setVisible(true);
+    }   
+
+    private JPanel initMatrixBuild(JTextField[][] fields, String func, JDialog dialog) {
+        JPanel confirm = new JPanel(new MigLayout("align 50% 50%"));
+        confirm.setBackground(buttonPanelColor);
+        confirm.setPreferredSize(new Dimension(290, 30));
+        JLabel confirmLabel = new JLabel("Build Matrix");
+        confirmLabel.setFont(buttonFont);
+        confirmLabel.setForeground(buttonForeground);
+        confirm.add(confirmLabel, "gapleft 5");
+
+        confirm.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt) {
+                buttonMouseEntered(evt, confirm);
+            }
+            public void mouseExited(MouseEvent evt) {
+                buttonMouseExited(evt, confirm, buttonPanelColor);
+            }
+            public void mouseClicked(MouseEvent evt) {
+                matrixBuildClicked(evt, fields, func);
+                dialog.dispose();
+                }
+            });
+        return confirm;
+    }
+   
+    private void matrixBuildClicked(MouseEvent evt, JTextField[][] fields, String func) {
+        int[][] matrix = new int[3][3];
+
+        for (int matrixRow = 0; matrixRow < fields.length; matrixRow++) {
+            for (int matrixCol = 0; matrixCol < fields[matrixRow].length; matrixCol++) {
+                JTextField field = fields[matrixRow][matrixCol];
+
+                if (field.getText().isBlank()) {
+                    JOptionPane.showMessageDialog(evt.getComponent(), "Cell(s) have no value", "Cell Empty", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                try {
+                    matrix[matrixRow][matrixCol] = Integer.parseInt(field.getText());
+                }
+                catch (NumberFormatException e) {
+                    Logger.log(3, "Invalid cell variable type. Type is of (String, long, double)", logField);
+                    JOptionPane.showMessageDialog(evt.getComponent(), "Cell value type is not of integer type", "Invalid Cell Value", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            }
+        }
+
+        if (func.equals("HighLow")) {
+            Logger.log(1, "\"Highest-Lowest\" Button has been performed", logField);
+
+            JOptionPane.showMessageDialog(getContentPane(), HighestLowest.highestLowest(matrix), "Highest Lowest", JOptionPane.PLAIN_MESSAGE);
+            Logger.log(1, "Button action successful", logField);
+            return;
+        }
+        else if (func.equals("MatrixComp")) {
+            Logger.log(1, "\"Matrix Computation\" Button has been performed", logField);                                              
+
+            JOptionPane.showMessageDialog(getContentPane(), MatrixComp.matrixComputation(matrix), "Matrix Operation", JOptionPane.PLAIN_MESSAGE);
+            Logger.log(1, "Button action successful", logField);
+            return;    
+        }
+    }
+
+    private JTextField initMatrixField() {
+        JTextField field = new JTextField();
+        field.setPreferredSize(new Dimension(100, 100));
+        field.setEditable(true);
+        field.setLayout(new MigLayout("align 50% 50%"));
+        field.setForeground(new Color(242, 242, 242));
+        field.setBackground(buttonBackground);
+        field.setFont(new Font("Bahnschrift", 1, 24));
+        field.setHorizontalAlignment(JTextField.CENTER);
+        field.setRequestFocusEnabled(true);
+        return field;
     }
 
     private void initComponents() {
@@ -831,5 +855,4 @@ public class Manager extends JFrame {
 
         pack();
     }
-
 }
